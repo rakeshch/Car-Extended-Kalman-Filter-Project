@@ -82,3 +82,10 @@ If you'd like to generate your own radar and lidar data, see the
 [utilities repo](https://github.com/udacity/CarND-Mercedes-SF-Utilities) for
 Matlab scripts that can generate additional data.
 
+## Helpful Reads
+
+The following references were provided by my project reviewer and are very helpful to me. 
+
+This [blog](http://www.bzarg.com/p/how-a-kalman-filter-works-in-pictures/) does a very good job of explaining the math behind kalman filter, particularly concerning the derivation of Kalman gain K.
+
+This [article](http://bilgin.esme.org/BitsAndBytes/KalmanFilterforDummies) illustrates how to use kalman filter to resolve an estimation problem, using a kalman filter for that problem may be an overkill, but I find it very enlightening in terms of understanding how the kalman works.
