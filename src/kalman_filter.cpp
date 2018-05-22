@@ -54,12 +54,16 @@ void KalmanFilter::Update_R(const VectorXd &z) {
 	H_ = MatrixXd(3, 4);
 	H_ = tools.CalculateJacobian(tools.PolarToCartesian(z));
 
-	//Convert Cartesian coordinates back to Polar coordinates
-	VectorXd hx_ = VectorXd(4);
-	hx_ = tools.CartesianToPolar(x_);
+	//Skip the measurement update step if px*px + py*py is zero or close to zero
+	if(x_[0]*x_[0] + x_[1]*x_[1] >=0.0001)
+	{
+	   //Convert Cartesian coordinates back to Polar coordinates
+	   VectorXd hx_ = VectorXd(4);
+	   hx_ = tools.CartesianToPolar(x_);
 
-	//Update state and covariance matrix 
-	UpdateEKF(z, hx_);
+	   //Update state and covariance matrix 
+	   UpdateEKF(z, hx_);
+	}	
 }
 
 void KalmanFilter::UpdateEKF(const VectorXd &z, VectorXd &hx_) {
