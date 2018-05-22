@@ -108,7 +108,10 @@ VectorXd Tools::CartesianToPolar(const VectorXd& cartesian) {
 	float vy = cartesian(3);
 
 	float rho = sqrt(px*px + py * py);
-	float phi = atan2(py, px);
+	float phi = 0;
+	//handle undefined value for phi, if px and py are zero
+	if(py !=0 && px !=0)
+	  phi = atan2(py, px);
 	float rhodot = 0;
 
 	//Avoid Divide by Zero error, if radian distance from origin is small
