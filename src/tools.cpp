@@ -69,7 +69,7 @@ MatrixXd Tools::CalculateJacobian(const VectorXd& x_state) {
 
 	Hj << px / c2, py / c2, 0, 0,
 		  -py / c1, px / c1, 0, 0,
-		  py*(vx*py - vy * px) / c3, px*(vy*px - vx * py) / c3, px / c2, py / c2;
+		  py*(vx*py - vy*px) / c3, px*(vy*px - vx*py) / c3, px / c2, py / c2;
 
 
 	return Hj;
@@ -97,7 +97,7 @@ VectorXd Tools::PolarToCartesian(const VectorXd& polar) {
 }
 
 /**
-* Convert polar to cartesian.
+* Convert cartesian to polar coordinates
 */
 VectorXd Tools::CartesianToPolar(const VectorXd& cartesian) {
 	VectorXd polar = VectorXd(3);
@@ -107,16 +107,18 @@ VectorXd Tools::CartesianToPolar(const VectorXd& cartesian) {
 	float vx = cartesian(2);
 	float vy = cartesian(3);
 
-	float rho = sqrt(px*px + py * py);
+	float rho = sqrt(px*px + py*py);
 	float phi = 0;
+	float rhodot = 0;
+	
 	//handle undefined value for phi, if px and py are zero
 	if(px !=0 && py !=0)
-	  phi = atan2(py, px);
-	float rhodot = 0;
+	    phi = atan2(py, px);
+	
 
 	//Avoid Divide by Zero error, if radian distance from origin is small
 	if (rho > thrsh_) {
-		rhodot = (px*vx + py*vy) / rho;
+	    rhodot = (px*vx + py*vy) / rho;
 	}
 
 	polar << rho, phi, rhodot;
