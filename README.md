@@ -84,7 +84,8 @@ Matlab scripts that can generate additional data.
 
 ## RMSE (Root Mean Square Error)
 The final values can be seen from the screen below:
-[Screenshot](./EKF_final.JPG)
+
+![Screenshot](./EKF_final.JPG)
 
 ## Helpful Reads
 
