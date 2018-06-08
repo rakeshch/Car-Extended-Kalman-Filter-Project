@@ -82,6 +82,10 @@ If you'd like to generate your own radar and lidar data, see the
 [utilities repo](https://github.com/udacity/CarND-Mercedes-SF-Utilities) for
 Matlab scripts that can generate additional data.
 
+## RMSE (Root Mean Square Error)
+The final values can be seen from the screen below:
+[Screenshot](./EKF_final.JPG)
+
 ## Helpful Reads
 
 The following references were provided by my project reviewer and are very helpful to me. 
