@@ -3,7 +3,13 @@ Self-Driving Car Engineer Nanodegree Program
 
 ## Introduction
 
-This project utilizes a kalman filter to estimate the state of a moving object of interest with noisy lidar and radar measurements. Passing the project requires obtaining RMSE values that are lower than the tolerance outlined in the project rubric. 
+This project utilizes a kalman filter to estimate the state of a moving object of interest with noisy lidar and radar measurements.
+
+We're provided simulated lidar and radar measurements detecting a bicycle that travels around the vehicle. We will use a Kalman filter, lidar measurements and radar measurements to track the bicycle's position and velocity.
+
+Lidar measurements are red circles, radar measurements are blue circles with an arrow pointing in the direction of the observed angle, and estimation markers are green triangles. The simulator provides the script the [measured data (either lidar or radar)](https://github.com/rakeshch/CarND-Extended-Kalman-Filter/blob/master/data/obj_pose-laser-radar-synthetic-input.txt), and the script feeds back the measured estimation marker, and RMSE values from its Kalman filter.
+
+Passing the project requires px, py, vx, and vy RMSE should be less than or equal to the values [.11, .11, 0.52, 0.52]. 
 
 This project involves the Term 2 Simulator which can be downloaded [here](https://github.com/udacity/self-driving-car-sim/releases)
 
